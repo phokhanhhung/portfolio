@@ -1,19 +1,10 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
+
+import { fadeInUp } from "@/utils/animation";
+
+import { Card, CardContent } from "../../shared/ui/card";
 
 const Projects = () => {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.6,
-      },
-    }),
-  };
-
   return (
     <motion.section
       className="mb-16"
@@ -34,18 +25,17 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="bg-[#FFFDF6] rounded-xl shadow-lg overflow-hidden">
+          <Card className="bg-[#D9EAFD] rounded-xl shadow-lg overflow-hidden">
             <CardContent className="p-6 sm:p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6">
-                <span className="text-blue-600">Evestar:</span> UI Builder for
-                Web Design
+                <span className="text-blue-600">Evestar</span>
               </h3>
               <div className="text-sm text-justify text-gray-700 space-y-4">
                 <p>
                   Evestar is a user-friendly platform that allows individuals to
-                  build personal event websites using drag-and-drop components —
-                  no coding required. Think of it like a personal-focused
-                  WordPress with cleaner UI.
+                  build personal event websites using built-in components — no
+                  coding required. Think of it like a personal-focused WordPress
+                  with cleaner UI.
                 </p>
                 <p>
                   My role involved developing reusable components, ensuring
@@ -86,7 +76,7 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="bg-[#FFFDF6] rounded-xl shadow-lg overflow-hidden">
+          <Card className="bg-[#D9EAFD] rounded-xl shadow-lg overflow-hidden">
             <CardContent className="p-6 sm:p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6">
                 <span className="text-blue-600">Frailty Management System</span>
