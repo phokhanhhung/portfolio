@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
+
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
+
 import Image from "next/image";
 
 interface ImageStackProps {

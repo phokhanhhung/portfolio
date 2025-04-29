@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card"; // adjust based on your setup
+
+import { fadeInUp } from "@/utils/animation";
+
+import { Card, CardContent } from "@/shared/ui/card";
 
 const AboutPortfolio = () => {
   return (
@@ -8,7 +11,7 @@ const AboutPortfolio = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      variants={fadeInUp}
     >
       <h2 className="text-2xl font-semibold mb-4">
         Personal Portfolio Website
@@ -39,7 +42,7 @@ const AboutPortfolio = () => {
           </div>
           <div className="mt-4">
             <a
-              href="https://github.com/yourusername/your-portfolio-repo" // link to your repo
+              href="https://github.com/phokhanhhung/portfolio"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-sm text-blue-600 hover:underline"
