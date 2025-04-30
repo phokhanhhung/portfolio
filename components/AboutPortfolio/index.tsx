@@ -3,17 +3,25 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
 import { Card, CardContent } from "@/shared/ui/card";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 const AboutPortfolio = () => {
+  const { isDarkMode } = useSelector((state: RootState) => state.mode);
+
   return (
     <motion.div
       className="mb-10"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       variants={fadeInUp}
     >
-      <h2 className="text-2xl font-semibold mb-4">
+      <h2
+        className={`text-2xl font-semibold mb-4 ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
         Personal Portfolio Website
       </h2>
       <Card className="shadow-lg rounded-lg bg-[#D9EAFD]">
@@ -28,16 +36,12 @@ const AboutPortfolio = () => {
             </p>
             <p className="mb-4">
               Built with Next.js and Tailwind CSS, the site features animated
-              components, SEO optimization, and smooth transitions to enhance
-              user experience.
+              components, and smooth transitions to enhance user experience.
             </p>
           </div>
           <div className="flex mt-6 gap-4 text-sm text-gray-500">
             <div className="flex items-center">
-              <span>Built with:</span>
-              <span className="ml-2 text-blue-500">
-                Next.js, TypeScript, Tailwind CSS, Motion
-              </span>
+              <span>Built with: Next.js, TypeScript, Tailwind CSS, Motion</span>
             </div>
           </div>
           <div className="mt-4">

@@ -3,17 +3,27 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
 import { Card, CardContent } from "../../shared/ui/card";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 const Projects = () => {
+  const { isDarkMode } = useSelector((state: RootState) => state.mode);
+
   return (
     <motion.section
       className="mb-16"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       variants={fadeInUp}
     >
-      <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+      <h2
+        className={`text-2xl font-semibold mb-4 ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
+        Projects
+      </h2>
 
       {/* Container for spacing between cards */}
       <div className="flex flex-col gap-10">
@@ -23,7 +33,7 @@ const Projects = () => {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           <Card className="bg-[#D9EAFD] rounded-xl shadow-lg overflow-hidden">
             <CardContent className="p-6 sm:p-8">
@@ -74,7 +84,7 @@ const Projects = () => {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           <Card className="bg-[#D9EAFD] rounded-xl shadow-lg overflow-hidden">
             <CardContent className="p-6 sm:p-8">
@@ -103,7 +113,7 @@ const Projects = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span>Built with Next.js, TypeScript, Redux</span>
+                <span>Built with React.js, Redux</span>
               </div>
               <p className="text-sm italic text-gray-500 mt-4">
                 Note: Due to confidentiality and security policies, the source
