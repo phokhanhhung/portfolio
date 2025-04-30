@@ -1,16 +1,26 @@
+import { RootState } from "@/store";
 import { fadeInUp } from "@/utils/animation";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const { isDarkMode } = useSelector((state: RootState) => state.mode);
+
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       variants={fadeInUp}
       className="text-sm"
     >
-      <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+      <h2
+        className={`text-2xl font-semibold mb-4 ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
+        Contact
+      </h2>
       <p className="text-gray-700 mb-4">You can reach out to me via:</p>
       <ul className="text-gray-700 space-y-2">
         <li>
