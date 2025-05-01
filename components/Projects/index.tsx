@@ -4,9 +4,10 @@ import { fadeInUp } from "@/utils/animation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
-import ProjectCard from "@/shared/common/ProjectCard";
-
 import { projects } from "./const";
+import { pacifico } from "@/shared/fonts";
+
+import ProjectCard from "@/shared/common/ProjectCard";
 
 const Projects = () => {
   const { isDarkMode } = useSelector((state: RootState) => state.mode);
@@ -16,11 +17,11 @@ const Projects = () => {
       className="mb-16"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={fadeInUp}
     >
       <h2
-        className={`text-2xl font-semibold mb-4 ${
+        className={`text-2xl font-semibold mb-4 ${pacifico.className} ${
           isDarkMode ? "text-white" : "text-black"
         }`}
       >

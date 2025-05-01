@@ -4,6 +4,8 @@ import { fadeInUp } from "@/utils/animation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
+import { pacifico } from "@/shared/fonts";
+
 import ProjectCard from "@/shared/common/ProjectCard";
 
 const AboutPortfolio = () => {
@@ -14,11 +16,11 @@ const AboutPortfolio = () => {
       className="mb-10"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={fadeInUp}
     >
       <h2
-        className={`text-2xl font-semibold mb-4 ${
+        className={`text-2xl font-semibold mb-4 ${pacifico.className} ${
           isDarkMode ? "text-white" : "text-black"
         }`}
       >

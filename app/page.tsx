@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
+import Description from "@/components/Description";
 
 export default function Portfolio() {
   const { isDarkMode } = useSelector((state: RootState) => state.mode);
@@ -23,6 +24,9 @@ export default function Portfolio() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <Header />
+
+        {/* Description */}
+        <Description />
 
         {/* About Me Section */}
         <AboutMe />
