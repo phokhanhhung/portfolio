@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 import { motion, AnimatePresence } from "framer-motion";
-
 import { aboutMe } from "./const";
 import { fadeInUp } from "@/utils/animation";
+
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 

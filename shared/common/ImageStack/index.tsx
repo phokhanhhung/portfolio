@@ -12,9 +12,14 @@ interface ImageStackProps {
 
 export default function ImageStack({ paths }: ImageStackProps) {
   const initialStack = React.useMemo(
-    () => paths.map((src) => ({ src })),
+    () =>
+      paths.map((src) => ({
+        src,
+        rotation: Math.random() * 20 - 10,
+      })),
     [paths]
   );
+
   const [stack, setStack] = React.useState(initialStack);
   const x = useMotionValue(0) || 0;
   const scale = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]) || 1;
@@ -37,18 +42,13 @@ export default function ImageStack({ paths }: ImageStackProps) {
     }
   };
 
-  const randomRotations = React.useMemo(
-    () => stack.map(() => Math.random() * 20 - 10),
-    [stack]
-  );
-
   return (
     <div className="relative w-[150px] h-[150px]">
       {stack.map((image, index) => {
         const isTop = index === 0;
         return (
           <motion.div
-            key={`image-${image.src}`}
+            key={`image-${image.src}-${index}`}
             style={isTop ? { x, scale, rotate } : {}}
             drag="x"
             onDragEnd={handleDragEnd}
@@ -58,7 +58,7 @@ export default function ImageStack({ paths }: ImageStackProps) {
               scale: 1 - index * 0.05,
               y: index * 5,
               zIndex: stack.length - index,
-              rotate: randomRotations[index],
+              rotate: image.rotation,
               opacity: 1,
             }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}

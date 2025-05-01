@@ -1,6 +1,7 @@
-import { RootState } from "@/store";
 import { fadeInUp } from "@/utils/animation";
 import { motion } from "framer-motion";
+
+import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 
 const Footer = () => {

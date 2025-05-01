@@ -1,11 +1,13 @@
 import { fadeInUp } from "@/utils/animation";
 import { motion } from "framer-motion";
-import { imagePaths } from "./const";
 
-import ImageStack from "../ImageStack";
-import DarkModeToggle from "../DarkModeToggle";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+
+import ImageStack from "@/shared/common/ImageStack";
+import DarkModeToggle from "@/components/DarkModeToggle";
+
+import { imagePaths } from "./const";
 
 const Header = () => {
   const { isDarkMode } = useSelector((state: RootState) => state.mode);
@@ -22,7 +24,7 @@ const Header = () => {
         <div className="mb-4 sm:mb-0">
           <ImageStack paths={imagePaths} />
         </div>
-        <div className="text-left">
+        <div className="text-center sm:text-left flex flex-col items-center sm:items-start">
           <h1
             className={`text-2xl sm:text-4xl font-bold mb-2 ${
               isDarkMode ? "text-white" : "text-black"
@@ -33,7 +35,9 @@ const Header = () => {
           <p className="text-lg text-gray-600 mb-2">
             Frontend Developer | React & Next.js
           </p>
-          <DarkModeToggle />
+          <div className="text-center">
+            <DarkModeToggle />
+          </div>
         </div>
       </div>
     </motion.header>
