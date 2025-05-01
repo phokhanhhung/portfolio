@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
-import Image from "next/image";
+import { dancingScript, greatVibes } from "@/shared/fonts";
+
 import { Card, CardContent } from "@/shared/ui/card";
 
 interface ProjectCardProps {
@@ -12,7 +13,6 @@ interface ProjectCardProps {
   techStack: string;
   projectLink?: string;
   extraInfo?: string;
-  imageSrc?: string;
 }
 
 const ProjectCard = ({
@@ -21,7 +21,6 @@ const ProjectCard = ({
   techStack,
   projectLink,
   extraInfo,
-  imageSrc,
 }: ProjectCardProps) => {
   return (
     <motion.div
@@ -29,19 +28,28 @@ const ProjectCard = ({
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
     >
-      <Card className="bg-[#D9EAFD] rounded-xl shadow-lg overflow-hidden">
-        <CardContent className="p-6 sm:p-8">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">
-            <span className="text-blue-600">{title}</span>
+      <Card className="bg-gradient-to-br from-[#E0F2FE] to-[#D9EAFD] border border-blue-100 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <CardContent className="p-6 sm:p-10">
+          <h3
+            className={`text-4xl font-bold mb-2 text-blue-700 ${greatVibes.className}`}
+          >
+            {title}
           </h3>
-          <div className="text-sm text-justify text-gray-700 space-y-4">
+
+          {/* Decorative line */}
+          <div className="w-16 h-1 bg-blue-300 rounded-full mb-6" />
+
+          <div
+            className={`space-y-4 text-xl text-gray-700 text-justify ${dancingScript.className}`}
+          >
             {description.map((desc, index) => (
               <p key={index}>{desc}</p>
             ))}
           </div>
-          <div className="flex items-center gap-3 mt-6 text-sm text-gray-500">
+
+          <div className="mt-6 flex items-center gap-3 text-base text-gray-600">
             <svg
               className="w-5 h-5 text-blue-500"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,37 +62,32 @@ const ProjectCard = ({
                 clipRule="evenodd"
               />
             </svg>
-            <span>{techStack}</span>
+            <span className="italic">{techStack}</span>
           </div>
+
           {extraInfo && (
-            <p className="text-sm italic text-gray-500 mt-4">{extraInfo}</p>
+            <p className="text-sm italic text-gray-500 mt-4 border-l-4 border-blue-200 pl-4">
+              {extraInfo}
+            </p>
           )}
+
           {projectLink && (
-            <div className="mt-4">
+            <div className="mt-6">
               <a
                 href={projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm text-blue-600 hover:underline"
+                className="inline-flex items-center text-base text-blue-600 hover:underline hover:text-blue-800 transition-colors"
               >
                 View Project
                 <svg
-                  className="ml-1 w-4 h-4"
+                  className="ml-2 w-4 h-4"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
                   <path d="M12.293 2.293a1 1 0 011.414 0L18 6.586a1 1 0 010 1.414L10.414 16H7v-3.414L15.586 3.707a1 1 0 010 1.414l-9.172 9.172A1 1 0 016.414 15H9v2H6a1 1 0 01-1-1v-3a1 1 0 01.293-.707l9.172-9.172z" />
                 </svg>
               </a>
-            </div>
-          )}
-          {imageSrc && (
-            <div className="mt-6">
-              <Image
-                src={imageSrc}
-                alt={`${title} Image`}
-                className="rounded-lg shadow-lg w-full"
-              />
             </div>
           )}
         </CardContent>
