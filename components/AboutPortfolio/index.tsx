@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-
 import { fadeInUp } from "@/utils/animation";
 
-import { Card, CardContent } from "@/shared/ui/card";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+
+import ProjectCard from "@/shared/common/ProjectCard";
 
 const AboutPortfolio = () => {
   const { isDarkMode } = useSelector((state: RootState) => state.mode);
@@ -22,47 +22,17 @@ const AboutPortfolio = () => {
           isDarkMode ? "text-white" : "text-black"
         }`}
       >
-        Personal Portfolio Website
+        About This Portfolio
       </h2>
-      <Card className="shadow-lg rounded-lg bg-[#D9EAFD]">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
-            Personal Portfolio Website
-          </h3>
-          <div className="text-sm text-gray-700">
-            <p className="mb-4">
-              This is the website you&apos;re currently viewing. It showcases my
-              projects, skills, and background in a clean, responsive layout.
-            </p>
-            <p className="mb-4">
-              Built with Next.js and Tailwind CSS, the site features animated
-              components, and smooth transitions to enhance user experience.
-            </p>
-          </div>
-          <div className="flex mt-6 gap-4 text-sm text-gray-500">
-            <div className="flex items-center">
-              <span>Built with: Next.js, TypeScript, Tailwind CSS, Motion</span>
-            </div>
-          </div>
-          <div className="mt-4">
-            <a
-              href="https://github.com/phokhanhhung/portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-sm text-blue-600 hover:underline"
-            >
-              View Source on GitHub
-              <svg
-                className="ml-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M12.293 2.293a1 1 0 011.414 0L18 6.586a1 1 0 010 1.414L10.414 16H7v-3.414L15.586 3.707a1 1 0 010 1.414l-9.172 9.172A1 1 0 016.414 15H9v2H6a1 1 0 01-1-1v-3a1 1 0 01.293-.707l9.172-9.172z" />
-              </svg>
-            </a>
-          </div>
-        </CardContent>
-      </Card>
+      <ProjectCard
+        title="About This Portfolio"
+        description={[
+          "This is the website you are currently viewing. It showcases my projects, skills, and background in a clean, responsive layout.",
+          "Built with Next.js, Tailwind CSS, and Motion, the site features animated components, and smooth transitions to enhance user experience.",
+        ]}
+        techStack="Built with: Next.js, TypeScript, Tailwind CSS, Motion"
+        projectLink="https://github.com/phokhanhhung/portfolio"
+      />
     </motion.div>
   );
 };
