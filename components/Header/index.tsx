@@ -44,9 +44,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`mt-5 text-xl text-gray-600 whitespace-nowrap ${dancingScript.className}`}
-      >
+      <div className={`mt-5 text-xl text-gray-600 ${dancingScript.className}`}>
         &quot;Failure is not to be feared; it is the failure to rise again that
         is truly frightening.&quot;
       </div>
